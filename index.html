@@ -903,11 +903,32 @@
 
     /* FAQ */
     .faq { background: var(--bg-light); }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.35fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+    .faq-intro {
+      position: sticky;
+      top: 6.5rem;
+      align-self: start;
+    }
+    .faq-intro .eyebrow { margin-bottom: 0.85rem; display: inline-block; }
+    .faq-intro .sec-title {
+      max-width: 12ch;
+      margin-bottom: 1rem;
+    }
+    .faq-intro-copy {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      max-width: 34ch;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
     .faq-list {
       display: grid;
       gap: 0.75rem;
-      max-width: 820px;
-      margin-bottom: 2.75rem;
     }
     .faq-item {
       background: #fff;
@@ -956,18 +977,33 @@
       background: #fff;
       border: 1px solid var(--steel-line);
       border-radius: 18px;
-      padding: 2rem;
-      max-width: 820px;
+      padding: 1.5rem 1.35rem;
+      margin-top: 0.35rem;
     }
     .faq-cta h3 {
-      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
       letter-spacing: -0.02em;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
     }
     .faq-cta p {
       color: var(--ink-muted);
-      margin-bottom: 1.35rem;
-      max-width: 52ch;
+      margin-bottom: 1.15rem;
+      max-width: 34ch;
+      font-size: 0.9rem;
+    }
+    .faq-cta .slide-actions {
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+    .faq-cta .btn { width: 100%; justify-content: center; }
+    @media (max-width: 900px) {
+      .faq-layout { grid-template-columns: 1fr; gap: 1.75rem; }
+      .faq-intro {
+        position: static;
+        top: auto;
+      }
+      .faq-intro .sec-title { max-width: 18ch; }
     }
     .testi-controls {
       display: flex;
@@ -1522,60 +1558,60 @@
   <!-- ——— FAQ ——— -->
   <section class="pad faq" id="faq">
     <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <div>
+      <div class="faq-layout">
+        <aside class="faq-intro" data-reveal>
           <span class="eyebrow">IASTM Tools · Training · Professional Education</span>
           <h2 class="sec-title">Frequently Asked Questions About <em>Dynamic Release Therapy</em></h2>
-        </div>
-      </div>
+          <p class="faq-intro-copy">Clear answers on instruments, course formats, CEUs, and hosting workshops—so you can choose the right next step for your practice.</p>
+          <div class="faq-cta">
+            <h3>Better Tools. Deeper Understanding. More Ways to Practice.</h3>
+            <p>Whether you're choosing your next IASTM instrument or developing your hands-on skills, explore the tools and education built around professional practice.</p>
+            <div class="slide-actions">
+              <a class="btn btn-primary" href="#courses">Explore Workshops</a>
+              <a class="btn btn-outline-dark" href="#instruments">Shop Instruments</a>
+            </div>
+          </div>
+        </aside>
 
-      <div class="faq-list" data-reveal>
-        <details class="faq-item" open>
-          <summary>What are IASTM tools, and how are Dynamic Release instruments used?</summary>
-          <p>Instrument-assisted soft tissue mobilization (IASTM) is a manual therapy approach in which practitioners use handheld instruments to assess and work with soft tissues. Dynamic Release offers stainless steel IASTM tools with specialized contours and treatment edges for use across different anatomical regions. These instruments complement hands-on clinical techniques rather than replace them.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Who are Dynamic Release instruments designed for?</summary>
-          <p>Dynamic Release instruments are designed primarily for physical therapists, athletic trainers, chiropractors, massage therapists, and other healthcare or movement professionals trained in appropriate soft tissue techniques. Practitioners should use the instruments within their professional training, competence, and applicable scope of practice.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Which Dynamic Release IASTM instrument should I choose?</summary>
-          <p>The appropriate instrument depends on the anatomical region and your intended clinical application.</p>
-          <ul>
-            <li><strong>DRT #1:</strong> Joint regions and surrounding tissue attachments.</li>
-            <li><strong>DRT #2:</strong> Larger soft tissue areas, including the back.</li>
-            <li><strong>DRT #3:</strong> Smaller areas, including hands, wrists, ankles, feet, and digits.</li>
-          </ul>
-          <p>The complete instrument set includes all three tools and a carrying case.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What makes Dynamic Release tools different from other IASTM instruments?</summary>
-          <p>Dynamic Release instruments feature solid 316 stainless steel construction, asymmetrical concave and convex curves, grooved grips, and double-beveled perimeter treatment edges. These design features provide different contact surfaces and application options. Instrument selection should still reflect clinical requirements, practitioner preference, and appropriate technique.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What is the difference between Fascia to Function Face-to-Face and Hybrid training?</summary>
-          <p>The Face-to-Face course is listed as a two-day, 16-hour hands-on program focused on instrument-assisted soft tissue techniques. The Hybrid course is listed as an eight-hour format combining preparatory learning with hands-on workshop instruction. Both provide practical learning opportunities. Review the individual course descriptions and scheduled format before registering.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What will I learn in a Dynamic Release IASTM workshop?</summary>
-          <p>Dynamic Release workshops cover soft tissue assessment, instrument handling, treatment-edge selection, and three-dimensional applications. Depending on the course, instruction may also address indications, contraindications, anatomical regions, and the integration of manual and instrument-assisted techniques. Hands-on practice is a central part of the learning experience.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do Dynamic Release workshops offer continuing education credits?</summary>
-          <p>Dynamic Release currently lists 16 BOC continuing education units for its Face-to-Face Fascia to Function course and 8 BOC units for its Hybrid course. Its individual advanced PNF workshops also list 16 BOC units. Professionals should confirm current course approval, credit eligibility, and requirements with the provider and their licensing or certification organization.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can clinics, universities, or professional organizations host a Dynamic Release workshop?</summary>
-          <p>Yes. Dynamic Release offers workshop-hosting opportunities for clinics, hospitals, academic programs, and professional organizations. Training can be discussed for groups in athletic training, physical therapy, chiropractic care, massage therapy, and related disciplines. Contact Gary Lang to discuss workshop requirements and available arrangements.</p>
-        </details>
-      </div>
-
-      <div class="faq-cta" data-reveal>
-        <h3>Better Tools. Deeper Understanding. More Ways to Practice.</h3>
-        <p>Whether you're choosing your next IASTM instrument or developing your hands-on skills, explore the tools and education built around professional practice.</p>
-        <div class="slide-actions">
-          <a class="btn btn-primary" href="#courses">Explore Professional Workshops</a>
-          <a class="btn btn-outline-dark" href="#instruments">Shop Dynamic Release Instruments</a>
+        <div class="faq-list" data-reveal>
+          <details class="faq-item" open>
+            <summary>What are IASTM tools, and how are Dynamic Release instruments used?</summary>
+            <p>Instrument-assisted soft tissue mobilization (IASTM) is a manual therapy approach in which practitioners use handheld instruments to assess and work with soft tissues. Dynamic Release offers stainless steel IASTM tools with specialized contours and treatment edges for use across different anatomical regions. These instruments complement hands-on clinical techniques rather than replace them.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Who are Dynamic Release instruments designed for?</summary>
+            <p>Dynamic Release instruments are designed primarily for physical therapists, athletic trainers, chiropractors, massage therapists, and other healthcare or movement professionals trained in appropriate soft tissue techniques. Practitioners should use the instruments within their professional training, competence, and applicable scope of practice.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which Dynamic Release IASTM instrument should I choose?</summary>
+            <p>The appropriate instrument depends on the anatomical region and your intended clinical application.</p>
+            <ul>
+              <li><strong>DRT #1:</strong> Joint regions and surrounding tissue attachments.</li>
+              <li><strong>DRT #2:</strong> Larger soft tissue areas, including the back.</li>
+              <li><strong>DRT #3:</strong> Smaller areas, including hands, wrists, ankles, feet, and digits.</li>
+            </ul>
+            <p>The complete instrument set includes all three tools and a carrying case.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What makes Dynamic Release tools different from other IASTM instruments?</summary>
+            <p>Dynamic Release instruments feature solid 316 stainless steel construction, asymmetrical concave and convex curves, grooved grips, and double-beveled perimeter treatment edges. These design features provide different contact surfaces and application options. Instrument selection should still reflect clinical requirements, practitioner preference, and appropriate technique.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is the difference between Fascia to Function Face-to-Face and Hybrid training?</summary>
+            <p>The Face-to-Face course is listed as a two-day, 16-hour hands-on program focused on instrument-assisted soft tissue techniques. The Hybrid course is listed as an eight-hour format combining preparatory learning with hands-on workshop instruction. Both provide practical learning opportunities. Review the individual course descriptions and scheduled format before registering.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What will I learn in a Dynamic Release IASTM workshop?</summary>
+            <p>Dynamic Release workshops cover soft tissue assessment, instrument handling, treatment-edge selection, and three-dimensional applications. Depending on the course, instruction may also address indications, contraindications, anatomical regions, and the integration of manual and instrument-assisted techniques. Hands-on practice is a central part of the learning experience.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do Dynamic Release workshops offer continuing education credits?</summary>
+            <p>Dynamic Release currently lists 16 BOC continuing education units for its Face-to-Face Fascia to Function course and 8 BOC units for its Hybrid course. Its individual advanced PNF workshops also list 16 BOC units. Professionals should confirm current course approval, credit eligibility, and requirements with the provider and their licensing or certification organization.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can clinics, universities, or professional organizations host a Dynamic Release workshop?</summary>
+            <p>Yes. Dynamic Release offers workshop-hosting opportunities for clinics, hospitals, academic programs, and professional organizations. Training can be discussed for groups in athletic training, physical therapy, chiropractic care, massage therapy, and related disciplines. Contact Gary Lang to discuss workshop requirements and available arrangements.</p>
+          </details>
         </div>
       </div>
     </div>
