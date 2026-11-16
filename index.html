@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic Release Therapy — Precision 3-D ISTM &amp; Clinical Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #090c10;
+      --bg-dark-2: #10151c;
+      --bg-light: #f4f5f7;
+      --surface-light: #ffffff;
+      --surface-dark: rgba(255, 255, 255, 0.04);
+      --ink-dark: #0d1218;
+      --ink-muted: #556170;
+      --ink-light: #f3f5f8;
+      --ink-light-mute: rgba(243, 245, 248, 0.72);
+      --teal: #e56a28;
+      --teal-bright: #f58649;
+      --steel-line: rgba(13, 18, 24, 0.1);
+      --dark-line: rgba(255, 255, 255, 0.11);
+      --gold-subtle: #c59b52;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-sans: "Sora", system-ui, sans-serif;
+      --font-serif: "Instrument Serif", Georgia, serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink-dark);
+      background: var(--bg-light);
+      line-height: 1.55;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .wrap { width: min(1200px, calc(100% - 2.5rem)); margin-inline: auto; }
+
+    /* Subtle top scroll progress line */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+      z-index: 60;
+      transition: width 0.08s linear;
+    }
+
+    /* ——— Header ——— */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.45s var(--ease), border-color 0.45s var(--ease), backdrop-filter 0.45s var(--ease);
+    }
+    .site-header.is-solid {
+      background: rgba(11, 17, 23, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--dark-line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      width: min(1200px, calc(100% - 2.5rem));
+      margin-inline: auto;
+      color: var(--ink-light);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-logo {
+      height: 2.35rem;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.08);
+    }
+    .brand-text { line-height: 1.05; }
+    .brand-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .brand-text span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-bright);
+      margin-top: 0.22rem;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink-light-mute);
+    }
+    .nav-links a {
+      position: relative;
+      padding-block: 0.25rem;
+      transition: color 0.3s var(--ease);
+    }
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 1.5px;
+      background: var(--teal-bright);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s var(--ease);
+    }
+    .nav-links a:not(.nav-cta):hover { color: #fff; }
+    .nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 0.85rem; }
+    .nav-phone {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-light-mute);
+      transition: color 0.3s;
+    }
+    .nav-phone:hover { color: var(--teal-bright); }
+    .nav-cta {
+      background: var(--teal);
+      color: #fff !important;
+      padding: 0.62rem 1.15rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .nav-cta:hover { background: var(--teal-bright); color: var(--bg-dark) !important; transform: translateY(-1px); }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--dark-line);
+      border-radius: 8px;
+      width: 2.4rem;
+      height: 2.4rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4.5px;
+    }
+    .nav-toggle span { width: 1.05rem; height: 1.5px; background: #fff; transition: transform 0.3s, opacity 0.3s; }
+    @media (max-width: 960px) {
+      .nav-phone { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        background: rgba(11, 17, 23, 0.98);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        font-size: 1.2rem;
+        gap: 1.4rem;
+        transform: translateX(100%);
+        transition: transform 0.45s var(--ease);
+        z-index: -1;
+      }
+      .nav-links.is-open { transform: none; }
+      .site-header.menu-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      .site-header.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+      .site-header.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    }
+
+    /* ——— HERO SHOWCASE SLIDER ——— */
+    .hero-slider {
+      position: relative;
+      min-height: 100vh;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding-top: 4.8rem;
+    }
+    .hero-ambient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 76% 30%, rgba(229, 106, 40, 0.16), transparent 46%),
+        radial-gradient(circle at 18% 82%, rgba(245, 134, 73, 0.08), transparent 42%);
+      z-index: 1;
+    }
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 35%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .slides-stage {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      align-items: center;
+      padding: 1.5rem 0 1.5rem;
+    }
+    .slide {
+      grid-area: 1 / 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+      gap: clamp(1.75rem, 4vw, 3.75rem);
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.75s var(--ease), visibility 0.75s;
+    }
+    .slide-copy, .slide-visual, .prod-card, .course-card, .founder-card, .founder-copy, .dock-inner > * {
+      min-width: 0;
+    }
+    .slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .slide-copy > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .slide.is-active .slide-copy > * { opacity: 1; transform: translateY(0); }
+    .slide.is-active .slide-copy > *:nth-child(1) { transition-delay: 0.08s; }
+    .slide.is-active .slide-copy > *:nth-child(2) { transition-delay: 0.16s; }
+    .slide.is-active .slide-copy > *:nth-child(3) { transition-delay: 0.24s; }
+    .slide.is-active .slide-copy > *:nth-child(4) { transition-delay: 0.32s; }
+    .slide.is-active .slide-copy > *:nth-child(5) { transition-delay: 0.4s; }
+
+    .slide-kicker {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.62rem;
+      margin-bottom: 1.5rem;
+      max-width: 36rem;
+    }
+    .kicker-topline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      width: 100%;
+      max-width: 22rem;
+    }
+    .kicker-mark {
+      width: 1.35rem;
+      height: 1px;
+      flex: none;
+      background: var(--teal-bright);
+      box-shadow: 0 0 10px rgba(245, 134, 73, 0.45);
+    }
+    .kicker-label {
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--teal-bright);
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .kicker-rule {
+      flex: 1 1 auto;
+      height: 1px;
+      min-width: 2rem;
+      background: linear-gradient(90deg, rgba(245, 134, 73, 0.45), transparent 92%);
+    }
+    .kicker-line {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.75rem;
+      padding-left: calc(1.35rem + 0.7rem);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+      font-weight: 400;
+      letter-spacing: 0.005em;
+      color: rgba(243, 245, 248, 0.88);
+      line-height: 1.2;
+    }
+    .kicker-line .sep {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(245, 134, 73, 0.55);
+      flex: none;
+      font-size: 0;
+      color: transparent;
+    }
+    .slide-title {
+      font-size: clamp(2.15rem, 4.5vw, 3.75rem);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin-bottom: 1rem;
+    }
+    .slide-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--teal-bright);
+    }
+    .slide-desc {
+      font-size: 1rem;
+      color: var(--ink-light-mute);
+      max-width: 48ch;
+      margin-bottom: 1.45rem;
+    }
+    .slide-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem 1.25rem;
+      margin-bottom: 1.65rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--dark-line);
+    }
+    .metric strong {
+      display: block;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .metric span {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light-mute);
+    }
+    .slide-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.88rem 1.45rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .btn-primary { background: var(--teal); color: #fff; }
+    .btn-primary:hover {
+      background: var(--teal-bright);
+      color: var(--bg-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(229, 106, 40, 0.28);
+    }
+    .btn-outline-light { border-color: rgba(255,255,255,0.22); color: #fff; background: rgba(255,255,255,0.03); }
+    .btn-outline-light:hover { border-color: var(--teal-bright); color: var(--teal-bright); transform: translateY(-2px); }
+    .btn-outline-dark { border-color: rgba(15,23,32,0.2); color: var(--ink-dark); }
+    .btn-outline-dark:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+    /* Right visual card of each slide */
+    .slide-visual {
+      position: relative;
+      opacity: 0;
+      transform: scale(0.95) translateY(14px);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+    }
+    .slide.is-active .slide-visual {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition-delay: 0.14s;
+    }
+    .visual-frame {
+      position: relative;
+      aspect-ratio: 4 / 3.4;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(155deg, #172330, #0d141c);
+      box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45);
+    }
+    .visual-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 6s ease-out;
+    }
+    .slide.is-active .visual-frame img { transform: scale(1.045); }
+    .visual-frame.is-product {
+      background: #000000;
+      padding: 1.5rem 1.5rem 4.75rem;
+    }
+    .visual-frame.is-product img { object-fit: contain; }
+    .visual-badge {
+      position: absolute;
+      left: 1.25rem;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      background: rgba(11, 17, 23, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 14px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .visual-badge small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--teal-bright);
+    }
+    .visual-badge strong { font-size: 0.95rem; color: #fff; }
+    .visual-price {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--teal-bright);
+      white-space: nowrap;
+    }
+
+    /* Slider Dock Controls */
+    .slider-dock {
+      position: relative;
+      z-index: 3;
+      border-top: 1px solid var(--dark-line);
+      background: rgba(11, 17, 23, 0.72);
+      backdrop-filter: blur(12px);
+    }
+    .dock-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .dock-counter {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink-light-mute);
+      white-space: nowrap;
+    }
+    .dock-counter strong { color: #fff; font-size: 0.95rem; }
+    .dock-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .dock-tab {
+      background: none;
+      border: 0;
+      text-align: left;
+      color: var(--ink-light-mute);
+      padding: 0.5rem 0.35rem;
+      transition: color 0.3s;
+    }
+    .dock-tab:hover, .dock-tab.is-active { color: #fff; }
+    .dock-tab-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.45rem;
+    }
+    .dock-tab-track {
+      height: 2px;
+      background: rgba(255,255,255,0.14);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .dock-tab-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+      border-radius: 99px;
+    }
+    .dock-tab.is-done .dock-tab-fill { width: 100%; opacity: 0.45; }
+    .dock-arrows { display: flex; gap: 0.5rem; }
+    .dock-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--dark-line);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .dock-btn:hover { border-color: var(--teal-bright); background: rgba(229, 106, 40, 0.16); transform: translateY(-1px); }
+
+    @media (max-width: 920px) {
+      .slide { grid-template-columns: 1fr; gap: 2rem; }
+      .dock-tabs { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .dock-inner { grid-template-columns: 1fr auto; }
+      .dock-tabs { grid-column: 1 / -1; order: 3; }
+      .slide-metrics { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ——— Trust / Partner Ribbon ——— */
+    .trust-strip {
+      background: #0f1720;
+      border-top: 1px solid var(--dark-line);
+      padding: 1.5rem 0;
+      color: rgba(242,245,248,0.65);
+    }
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 2rem;
+    }
+    .trust-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal-bright);
+    }
+    .trust-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 2rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(242,245,248,0.82);
+    }
+
+    /* ——— Shared Section Styling ——— */
+    section.pad { padding: 5.5rem 0; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .sec-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .sec-title {
+      font-size: clamp(1.95rem, 3.7vw, 2.95rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 18ch;
+    }
+    .sec-title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--teal); }
+    .sec-sub { color: var(--ink-muted); max-width: 44ch; font-size: 0.98rem; }
+
+    /* Smooth Reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    [data-reveal].is-in { opacity: 1; transform: translateY(0); }
+
+    /* ——— Interactive 3D Engineering Strip ——— */
+    .science { background: var(--surface-light); border-block: 1px solid var(--steel-line); }
+    .science-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .spec-tabs { display: grid; gap: 0.75rem; }
+    .spec-tab {
+      text-align: left;
+      background: var(--bg-light);
+      border: 1px solid var(--steel-line);
+      border-radius: 14px;
+      padding: 1.15rem 1.35rem;
+      transition: border-color 0.3s var(--ease), background 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .spec-tab:hover { transform: translateX(4px); border-color: rgba(229,106,40,0.45); }
+    .spec-tab.is-active {
+      background: var(--bg-dark);
+      color: #fff;
+      border-color: var(--teal);
+      box-shadow: 0 16px 36px rgba(15,23,32,0.12);
+    }
+    .spec-tab small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.3rem;
+    }
+    .spec-tab.is-active small { color: var(--teal-bright); }
+    .spec-tab strong { display: block; font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .spec-tab p { font-size: 0.88rem; color: var(--ink-muted); }
+    .spec-tab.is-active p { color: var(--ink-light-mute); }
+
+    .science-panel {
+      background: var(--bg-dark);
+      color: #fff;
+      border-radius: 22px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 25rem;
+      display: grid;
+      align-content: space-between;
+    }
+    .science-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 15%, rgba(229, 106, 40, 0.2), transparent 55%);
+      pointer-events: none;
+    }
+    .science-readout { position: relative; z-index: 1; transition: opacity 0.35s var(--ease), transform 0.35s var(--ease); }
+    .science-readout.is-switching { opacity: 0; transform: translateY(8px); }
+    .science-panel h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      line-height: 1.18;
+      margin-bottom: 0.85rem;
+    }
+    .science-panel p { color: var(--ink-light-mute); max-width: 44ch; margin-bottom: 1.5rem; }
+    .plane-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .plane-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--teal-bright);
+    }
+    .science-foot {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--dark-line);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-light-mute);
+    }
+    @media (max-width: 860px) { .science-grid { grid-template-columns: 1fr; } }
+
+    /* ——— Instruments Grid ——— */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.35rem;
+    }
+    .prod-card {
+      background: var(--surface-light);
+      border: 1px solid var(--steel-line);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .prod-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px rgba(15, 23, 32, 0.1);
+      border-color: rgba(229, 106, 40, 0.5);
+    }
+    .prod-media {
+      position: relative;
+      aspect-ratio: 1 / 0.92;
+      background: #000000;
+      padding: 1.35rem;
+      overflow: hidden;
+    }
+    .prod-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.55s var(--ease);
+    }
+    .prod-card:hover .prod-media img { transform: scale(1.06); }
+    .prod-tag {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--teal-bright);
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      z-index: 2;
+    }
+    .prod-body {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .prod-body h3 { font-size: 1.12rem; margin-bottom: 0.45rem; }
+    .prod-body p { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 1.15rem; flex: 1; }
+    .prod-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.95rem;
+      border-top: 1px solid var(--steel-line);
+    }
+    .price strong { font-size: 1.08rem; color: var(--ink-dark); }
+    .price s { font-size: 0.82rem; color: #8c9aa8; margin-right: 0.35rem; }
+    .prod-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.25s;
+    }
+    .prod-card:hover .prod-link { gap: 0.55rem; }
+    @media (max-width: 1020px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .products-grid { grid-template-columns: 1fr; } }
+
+    /* ——— Courses ——— */
+    .courses { background: var(--bg-dark); color: var(--ink-light); }
+    .courses .sec-sub { color: var(--ink-light-mute); }
+    .courses .eyebrow { color: var(--teal-bright); }
+    .courses .sec-title em { color: var(--teal-bright); }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .course-card {
+      background: var(--bg-dark-2);
+      border: 1px solid var(--dark-line);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .course-card:hover { transform: translateY(-5px); border-color: var(--teal-bright); }
+    .course-img { aspect-ratio: 16 / 10; overflow: hidden; }
+    .course-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .course-card:hover .course-img img { transform: scale(1.05); }
+    .course-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .course-meta {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-bright);
+      margin-bottom: 0.6rem;
+    }
+    .course-body h3 { font-size: 1.22rem; line-height: 1.25; margin-bottom: 0.6rem; }
+    .course-body p { font-size: 0.9rem; color: var(--ink-light-mute); margin-bottom: 1.25rem; flex: 1; }
+    .course-cta {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--teal-bright);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    @media (max-width: 900px) { .courses-grid { grid-template-columns: 1fr; } }
+
+    /* ——— Founder Bio ——— */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .founder-card {
+      background: var(--bg-dark);
+      color: #fff;
+      border-radius: 22px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+    .founder-avatar {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--teal-bright);
+    }
+    .founder-top h3 { font-size: 1.3rem; }
+    .founder-top span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--teal-bright);
+      margin-top: 0.2rem;
+    }
+    .cred-list {
+      display: grid;
+      gap: 0.75rem;
+      border-top: 1px solid var(--dark-line);
+      padding-top: 1.35rem;
+      font-size: 0.88rem;
+      color: var(--ink-light-mute);
+    }
+    .cred-list li { list-style: none; display: flex; gap: 0.6rem; }
+    .cred-list li::before { content: "—"; color: var(--teal-bright); }
+    .founder-copy h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.12; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .founder-copy p { color: var(--ink-muted); margin-bottom: 1rem; font-size: 0.98rem; }
+    .founder-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.75rem 0;
+      padding: 1.25rem 0;
+      border-block: 1px solid var(--steel-line);
+    }
+    .founder-stats strong { display: block; font-size: 1.6rem; color: var(--teal); }
+    .founder-stats span { font-size: 0.78rem; color: var(--ink-muted); }
+    @media (max-width: 860px) { .founder-grid { grid-template-columns: 1fr; } }
+
+    /* ——— Testimonials Slider ——— */
+    .testimonials { background: var(--surface-light); border-top: 1px solid var(--steel-line); }
+    .testi-wrap {
+      background: var(--bg-light);
+      border: 1px solid var(--steel-line);
+      border-radius: 22px;
+      padding: clamp(1.75rem, 4vw, 3.25rem);
+      position: relative;
+    }
+    .testi-stage {
+      display: grid;
+      min-height: 13rem;
+    }
+    .testi-slide {
+      grid-area: 1 / 1;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+    }
+    .testi-slide.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .testi-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+      line-height: 1.38;
+      letter-spacing: -0.01em;
+      color: var(--ink-dark);
+      margin-bottom: 1.5rem;
+      max-width: 58ch;
+    }
+    .testi-author strong { display: block; font-size: 0.98rem; }
+    .testi-author span { font-size: 0.85rem; color: var(--teal); font-weight: 500; }
+    .testi-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--steel-line);
+    }
+    .testi-dots { display: flex; gap: 0.45rem; }
+    .testi-dot {
+      width: 1.6rem; height: 4px;
+      border: 0; border-radius: 99px;
+      background: rgba(15,23,32,0.16);
+      transition: width 0.35s var(--ease), background 0.35s;
+    }
+    .testi-dot.is-active { width: 2.8rem; background: var(--teal); }
+    .testi-nav { display: flex; gap: 0.5rem; }
+    .testi-btn {
+      width: 2.35rem; height: 2.35rem;
+      border-radius: 50%;
+      border: 1px solid var(--steel-line);
+      background: #fff;
+      color: var(--ink-dark);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .testi-btn:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ——— Footer ——— */
+    .site-footer {
+      background: #080d12;
+      color: var(--ink-light-mute);
+      padding: 4.5rem 0 2rem;
+      border-top: 1px solid var(--dark-line);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 2.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--dark-line);
+    }
+    .footer-brand p { font-size: 0.9rem; max-width: 34ch; margin: 1rem 0 0; }
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: grid; gap: 0.55rem; font-size: 0.9rem; }
+    .footer-col a { transition: color 0.25s, padding-left 0.25s; }
+    .footer-col a:hover { color: var(--teal-bright); padding-left: 0.2rem; }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      font-size: 0.78rem;
+    }
+    .footer-bottom ul { list-style: none; display: flex; gap: 1.4rem; }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Dynamic Release Therapy">
+        <img class="brand-logo" src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/logo-1.webp" alt="Dynamic Release Therapy" />
+        <span class="brand-text">
+          <span>3-D ISTM · Made in USA</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#science">3-D Science</a>
+        <a href="#instruments">Instruments</a>
+        <a href="#courses">Courses</a>
+        <a href="#founder">Gary Lang</a>
+        <a href="#testimonials">Clinicians</a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-phone" href="tel:4083942830">(408) 394-2830</a>
+        <a class="nav-cta" href="#courses">Register / Shop</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ——— HERO SHOWCASE SLIDER ——— -->
+  <section class="hero-slider" id="top">
+    <div class="hero-ambient"></div>
+    <div class="hero-grid-bg"></div>
+
+    <div class="wrap slides-stage" id="heroStage">
+      <!-- Slide 1 -->
+      <article class="slide is-active" data-slide="0">
+        <div class="slide-copy">
+          <div class="slide-kicker">
+            <div class="kicker-topline">
+              <span class="kicker-mark" aria-hidden="true"></span>
+              <span class="kicker-label">Patented System</span>
+              <span class="kicker-rule" aria-hidden="true"></span>
+            </div>
+            <div class="kicker-line">3-D ISTM <span class="sep">·</span> Non-Porous Steel <span class="sep">·</span> Made in USA</div>
+          </div>
+          <h1 class="slide-title">Release fascia in <em>3 dimensions.</em> Save your hands.</h1>
+          <p class="slide-desc">Non-porous 316 solid stainless steel instruments with double-beveled perimeter edges—built to detect and release collagenous scar tissue without bruising.</p>
+          <div class="slide-metrics">
+            <div class="metric"><strong>316 Steel</strong><span>Non-Porous · Pathogen Safe</span></div>
+            <div class="metric"><strong>30+ Years</strong><span>Olympic &amp; Pro Sports Care</span></div>
+            <div class="metric"><strong>Zero Downtime</strong><span>Same-Day Return to Play</span></div>
+          </div>
+          <div class="slide-actions">
+            <a class="btn btn-primary" href="#instruments">Explore Instruments</a>
+            <a class="btn btn-outline-light" href="#courses">View Certification Courses</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-frame">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/03/home-banner-1.webp" alt="Dynamic Release Therapy treatment and instruments" />
+            <div class="visual-badge">
+              <div>
+                <small>Clinical Standard</small>
+                <strong>Designed by Professionals for Professionals</strong>
+              </div>
+              <span class="visual-price">DRT System</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="slide" data-slide="1">
+        <div class="slide-copy">
+          <div class="slide-kicker">
+            <div class="kicker-topline">
+              <span class="kicker-mark" aria-hidden="true"></span>
+              <span class="kicker-label">Complete Clinical Kit</span>
+              <span class="kicker-rule" aria-hidden="true"></span>
+            </div>
+            <div class="kicker-line">DRT #1–#3 <span class="sep">·</span> Leather Case <span class="sep">·</span> Save $136</div>
+          </div>
+          <h1 class="slide-title">Three instruments. <em>Every</em> anatomical plane.</h1>
+          <p class="slide-desc">DRT #1, DRT #2, and DRT #3 cut from solid bar stock—not forged or cast—for resonant tissue feedback, ergonomic angled-grooved grips, and full-body joint precision.</p>
+          <div class="slide-metrics">
+            <div class="metric"><strong>DRT #1–#3</strong><span>Asymmetric Concave / Convex</span></div>
+            <div class="metric"><strong>Leather Case</strong><span>Included Protective Roll</span></div>
+            <div class="metric"><strong>Double Bevel</strong><span>Calibrated Perimeter Edges</span></div>
+          </div>
+          <div class="slide-actions">
+            <a class="btn btn-primary" href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">Shop Full Set — $959</a>
+            <a class="btn btn-outline-light" href="#instruments">Compare DRT #1 · #2 · #3</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-frame is-product">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3-1-1.webp" alt="Dynamic Release Instrument Set with Leather Case" />
+            <div class="visual-badge">
+              <div>
+                <small>Complete Kit</small>
+                <strong>Instrument Set with Leather Case</strong>
+              </div>
+              <span class="visual-price">$959.00</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="slide" data-slide="2">
+        <div class="slide-copy">
+          <div class="slide-kicker">
+            <div class="kicker-topline">
+              <span class="kicker-mark" aria-hidden="true"></span>
+              <span class="kicker-label">International Certification</span>
+              <span class="kicker-rule" aria-hidden="true"></span>
+            </div>
+            <div class="kicker-line">2-Day Lab <span class="sep">·</span> 16 Hours <span class="sep">·</span> CEU / CPE</div>
+          </div>
+          <h1 class="slide-title"><em>Fascia to Function</em> Hands-On Lab.</h1>
+          <p class="slide-desc">Master multi-plane instrumented soft tissue mobilization and PNF integration—taught in person and hybrid across Stanford University, Europe, Asia, and the Middle East.</p>
+          <div class="slide-metrics">
+            <div class="metric"><strong>16 Hours</strong><span>Lecture &amp; Hands-On Lab</span></div>
+            <div class="metric"><strong>CEU / CPE</strong><span>International Certification</span></div>
+            <div class="metric"><strong>PT · ATC · DC</strong><span>Clinics &amp; Universities</span></div>
+          </div>
+          <div class="slide-actions">
+            <a class="btn btn-primary" href="#courses">Explore Workshops</a>
+            <a class="btn btn-outline-light" href="mailto:Gary@DynamicReleaseTherapy.com">Host a Clinic Course</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-frame">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-3.webp" alt="Fascia to Function hands-on course" />
+            <div class="visual-badge">
+              <div>
+                <small>Upcoming Training</small>
+                <strong>Fascia to Function — Face to Face &amp; Hybrid</strong>
+              </div>
+              <span class="visual-price">16 HRS</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="slide" data-slide="3">
+        <div class="slide-copy">
+          <div class="slide-kicker">
+            <div class="kicker-topline">
+              <span class="kicker-mark" aria-hidden="true"></span>
+              <span class="kicker-label">Proven at the Highest Level</span>
+              <span class="kicker-rule" aria-hidden="true"></span>
+            </div>
+            <div class="kicker-line">Olympic <span class="sep">·</span> FIFA <span class="sep">·</span> Pro Baseball</div>
+          </div>
+          <h1 class="slide-title">Trusted from <em>Stanford</em> to World Championships.</h1>
+          <p class="slide-desc">Created by Gary Lang, MS, OMT, ATR—combining three decades with the USOC, FIFA World Cup ’94, IAAF, and elite manual therapy pioneers.</p>
+          <div class="slide-metrics">
+            <div class="metric"><strong>2 Olympics</strong><span>USOC Medical Staff</span></div>
+            <div class="metric"><strong>SF Giants</strong><span>Daily MLB Recovery</span></div>
+            <div class="metric"><strong>10+ Years</strong><span>MSAT University Curricula</span></div>
+          </div>
+          <div class="slide-actions">
+            <a class="btn btn-primary" href="#founder">Meet Gary Lang</a>
+            <a class="btn btn-outline-light" href="#testimonials">Read Clinician Reviews</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-frame">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/Courses-2.webp" alt="Clinical sports medicine workshop" />
+            <div class="visual-badge">
+              <div>
+                <small>Founder &amp; Lead Instructor</small>
+                <strong>Gary L. Lang, MS, OMT, ATR</strong>
+              </div>
+              <span class="visual-price">30+ YRS</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Slider Dock -->
+    <div class="slider-dock">
+      <div class="wrap dock-inner">
+        <div class="dock-counter"><strong id="slideNum">01</strong> / 04</div>
+        <div class="dock-tabs" id="dockTabs">
+          <button class="dock-tab is-active" data-goto="0"><span class="dock-tab-label">01 · 3-D Release</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+          <button class="dock-tab" data-goto="1"><span class="dock-tab-label">02 · Steel Instrument Set</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+          <button class="dock-tab" data-goto="2"><span class="dock-tab-label">03 · Fascia to Function</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+          <button class="dock-tab" data-goto="3"><span class="dock-tab-label">04 · Olympic Heritage</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+        </div>
+        <div class="dock-arrows">
+          <button class="dock-btn" id="prevSlide" aria-label="Previous slide">←</button>
+          <button class="dock-btn" id="nextSlide" aria-label="Next slide">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Ribbon -->
+  <div class="trust-strip">
+    <div class="wrap trust-row">
+      <span class="trust-label">Trusted in clinical &amp; athletic rooms</span>
+      <div class="trust-names">
+        <span>San Francisco Giants</span>
+        <span>Stanford Athletics</span>
+        <span>USOC &amp; USA Wrestling</span>
+        <span>California Baptist Univ. MSAT</span>
+        <span>University of Idaho</span>
+        <span>Luleå Hockey Sweden</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— 3-D Science & Engineering ——— -->
+  <section class="pad science" id="science">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">Engineering &amp; Biomechanics</span>
+          <h2 class="sec-title">Why practitioners switch to <em>Dynamic Release.</em></h2>
+        </div>
+        <p class="sec-sub">Traditional tools push too hard and bruise healthy tissue. DRT pairs non-porous 316 steel with multi-plane clinical geometry.</p>
+      </div>
+
+      <div class="science-grid" data-reveal>
+        <div class="spec-tabs" id="specTabs">
+          <button class="spec-tab is-active" data-spec="0">
+            <small>01 · Material Science</small>
+            <strong>Solid 316 Non-Porous Stainless Steel</strong>
+            <p>Machined—never forged or cast—creating resonant tactile vibration while blocking pathogen transfer.</p>
+          </button>
+          <button class="spec-tab" data-spec="1">
+            <small>02 · Edge Geometry</small>
+            <strong>Calibrated Double-Beveled Perimeter</strong>
+            <p>Contoured asymmetric curves fit every somatotype and release scar tissue with less force and zero bruising.</p>
+          </button>
+          <button class="spec-tab" data-spec="2">
+            <small>03 · Biomechanics</small>
+            <strong>Multi-Plane 3-D Tissue Loading</strong>
+            <p>Restrictions exist across sagittal, frontal, and transverse planes—athletes return to activity the same day.</p>
+          </button>
+        </div>
+
+        <div class="science-panel">
+          <div class="science-readout" id="scienceReadout">
+            <span class="eyebrow" style="color: var(--teal-bright);" id="specEyebrow">01 · Non-Porous 316 Alloy</span>
+            <h3 id="specTitle">Pure resonance through solid bar stock—zero pores, faster sanitation.</h3>
+            <p id="specBody">Increased nickel content in 316 stainless steel eliminates microscopic surface pores where pathogens hide. Clinicians feel subtle fascial adhesions instantly through the instrument’s natural vibration, while angled-grooved grips protect practitioner thumbs and wrists from overuse injury.</p>
+            <div class="plane-pills" id="specPills">
+              <span class="plane-pill">316 Medical-Grade Steel</span>
+              <span class="plane-pill">Angled-Grooved Grip</span>
+              <span class="plane-pill">Save Your Hands™</span>
+            </div>
+          </div>
+          <div class="science-foot">
+            <span>MADE IN THE USA · PATENTED DESIGN</span>
+            <span>NO RECOVERY DAY REQUIRED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Instruments ——— -->
+  <section class="pad" id="instruments">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">Precision Instruments</span>
+          <h2 class="sec-title">Machined for <em>every</em> joint and contour.</h2>
+        </div>
+        <a class="btn btn-outline-dark" href="https://dynamicreleasetherapy.com/shop/" target="_blank" rel="noopener">Visit Full Store →</a>
+      </div>
+
+      <div class="products-grid">
+        <article class="prod-card" data-reveal>
+          <div class="prod-media">
+            <span class="prod-tag">Save $136</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3-1-1.webp" alt="Instrument Set with Case" />
+          </div>
+          <div class="prod-body">
+            <h3>Instrument Set with Case</h3>
+            <p>Complete set of three non-porous stainless steel instruments (DRT #1, #2, #3) with handcrafted leather case.</p>
+            <div class="prod-foot">
+              <div class="price"><s>$1,095</s><strong>$959.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prod-card" data-reveal>
+          <div class="prod-media">
+            <span class="prod-tag">Joint Versatility</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-1-1.webp" alt="DRT #1 Instrument" />
+          </div>
+          <div class="prod-body">
+            <h3>DRT #1</h3>
+            <p>Double-beveled, asymmetric concave-convex curves with a continuous perimeter treatment edge around joints.</p>
+            <div class="prod-foot">
+              <div class="price"><s>$365</s><strong>$359.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-2/" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prod-card" data-reveal>
+          <div class="prod-media">
+            <span class="prod-tag">Large Regions</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-2.webp" alt="DRT #2 Instrument" />
+          </div>
+          <div class="prod-body">
+            <h3>DRT #2</h3>
+            <p>Multi-directional applications across larger muscle groups and fascial chains with calibrated double-bevel edges.</p>
+            <div class="prod-foot">
+              <div class="price"><s>$365</s><strong>$359.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-3/" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prod-card" data-reveal>
+          <div class="prod-media">
+            <span class="prod-tag">Extremity Precision</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3.webp" alt="DRT #3 Instrument" />
+          </div>
+          <div class="prod-body">
+            <h3>DRT #3</h3>
+            <p>Compact precision profile engineered specifically to release collagen around digits, wrist, ankle, foot, and hands.</p>
+            <div class="prod-foot">
+              <div class="price"><strong>$359.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-4/" target="_blank" rel="noopener">View →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Courses & Workshops ——— -->
+  <section class="pad courses" id="courses">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">Clinical Education · CEU / CPE</span>
+          <h2 class="sec-title">Courses built by <em>active</em> soft tissue instructors.</h2>
+        </div>
+        <p class="sec-sub">Hands-on international certifications and university workshops for PTs, OTs, ATCs, DCs, and manual therapists.</p>
+      </div>
+
+      <div class="courses-grid">
+        <article class="course-card" data-reveal>
+          <div class="course-img">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-3.webp" alt="Fascia to Function Face to Face" />
+          </div>
+          <div class="course-body">
+            <span class="course-meta">2-Day · 16 Hours · In-Person Lab</span>
+            <h3>Fascia to Function “Face to Face”</h3>
+            <p>International certification in multi-plane 3-D ISTM—covering spine, upper/lower extremities, and clinical loading.</p>
+            <a class="course-cta" href="https://dynamicreleasetherapy.com/product/fascia-to-function-face-to-face/" target="_blank" rel="noopener">Course Details →</a>
+          </div>
+        </article>
+
+        <article class="course-card" data-reveal>
+          <div class="course-img">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/Courses-2.webp" alt="Fascia to Function Hybrid" />
+          </div>
+          <div class="course-body">
+            <span class="course-meta">Online + Live Practice · Flexible</span>
+            <h3>Fascia to Function “Hybrid”</h3>
+            <p>Combine foundational fascial science online with intensive live lab mastery—hosted at Stanford &amp; partner clinics.</p>
+            <a class="course-cta" href="https://dynamicreleasetherapy.com/course/" target="_blank" rel="noopener">Course Details →</a>
+          </div>
+        </article>
+
+        <article class="course-card" data-reveal>
+          <div class="course-img">
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-5.webp" alt="Advanced PNF Workshop" />
+          </div>
+          <div class="course-body">
+            <span class="course-meta">Upper &amp; Lower Extremities</span>
+            <h3>Advanced Techniques of PNF</h3>
+            <p>Integrate Proprioceptive Neuromuscular Facilitation with 3-D soft tissue mobilization for instant strength and ROM gains.</p>
+            <a class="course-cta" href="https://dynamicreleasetherapy.com/product/pnf-proprioceptive-neuromuscular-facilitation-face-to-face/" target="_blank" rel="noopener">Course Details →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Gary Lang Founder ——— -->
+  <section class="pad" id="founder">
+    <div class="wrap founder-grid">
+      <div class="founder-card" data-reveal>
+        <div class="founder-top">
+          <img class="founder-avatar" src="https://media.licdn.com/dms/image/v2/D5603AQFWEru_EdasHw/profile-displayphoto-shrink_200_200/B56ZQ7KTYeHoAY-/0/1736159344566?e=2147483647&v=beta&t=42pUYIHt9DOb_y-bHg1bAoTRvUi5z6Zp3lzcoG2l3Yo" alt="Gary Lang, MS, OMT, ATR" />
+          <div>
+            <h3>Gary L. Lang, MS, OMT, ATR</h3>
+            <span>Founder &amp; CEO · San Francisco Bay Area</span>
+          </div>
+        </div>
+        <ul class="cred-list">
+          <li>Two Olympic Games, USOC, IAAF, USA Track &amp; Field &amp; USA Gymnastics</li>
+          <li>Medical Coordinator — FIFA World Cup ’94 at Stanford University</li>
+          <li>Professor of Sports Medicine, Foothill College (1988–2019)</li>
+          <li>Adjunct Professor, MAHSA University (Kuala Lumpur, Malaysia)</li>
+          <li>East-West Shrine Bowl Medical Staff (12 years)</li>
+        </ul>
+      </div>
+
+      <div class="founder-copy" data-reveal>
+        <span class="eyebrow">Meet the Innovator</span>
+        <h2>Rooted in <em>international</em> manual therapy. Built for longevity.</h2>
+        <p>Gary Lang began working with soft tissue instruments in the 1980s alongside pioneering hands-on clinicians in Northern California, Switzerland, Norway, and Australia. After testing wood, ceramic, jade, polymer, and early metal tools across Olympic and FIFA events, he engineered Dynamic Release Therapy to eliminate bruising and protect clinicians’ hands.</p>
+        <div class="founder-stats">
+          <div><strong>30+</strong><span>Years Clinical Practice</span></div>
+          <div><strong>17K+</strong><span>Clinical Followers</span></div>
+          <div><strong>4</strong><span>Continents Taught</span></div>
+        </div>
+        <div class="slide-actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/gary-lang-ms-omt-atr-8bb3a067/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn-outline-dark" href="mailto:Gary@DynamicReleaseTherapy.com">Email Gary Directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Testimonials Slider ——— -->
+  <section class="pad testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">Clinical Outcomes</span>
+          <h2 class="sec-title">Endorsed by <em>pro trainers,</em> Olympians &amp; program directors.</h2>
+        </div>
+      </div>
+
+      <div class="testi-wrap" data-reveal>
+        <div class="testi-stage" id="testiStage">
+          <article class="testi-slide is-active">
+            <p class="testi-quote">“Dynamic Release is instrumental in giving our players an effective and efficient mode of recovery from chronic injuries sustained from playing baseball every day. Our players love the instruments!”</p>
+            <div class="testi-author">
+              <strong>Anthony Reyes, ATC, CSCS</strong>
+              <span>Assistant Athletic Trainer · San Francisco Giants</span>
+            </div>
+          </article>
+
+          <article class="testi-slide">
+            <p class="testi-quote">“With my feet and ankles constantly in skates, the DRT #3 provides exact release points after hours on the ice. Dynamic Release restores my mobility better than any other method.”</p>
+            <div class="testi-author">
+              <strong>Camryn Wong</strong>
+              <span>Olympian &amp; Professional Hockey Player · Luleå Women’s Hockey, Sweden</span>
+            </div>
+          </article>
+
+          <article class="testi-slide">
+            <p class="testi-quote">“Gary Lang has been providing Dynamic Release training to the CBU MSAT for 10 years. We appreciate the evidence-based approach and how consistently he helps students elevate clinical care.”</p>
+            <div class="testi-author">
+              <strong>Nicole MacDonald, DrPH, ATC, CSCS</strong>
+              <span>Program Director, Athletic Training · California Baptist University</span>
+            </div>
+          </article>
+
+          <article class="testi-slide">
+            <p class="testi-quote">“Whether providing care at Stanford Athletics or working with the USA Wrestling Olympic team, these tools have offered an ergonomically comfortable, reliable game-changer for manual therapy.”</p>
+            <div class="testi-author">
+              <strong>Eitan Gelber, MA, ATC, CSCS</strong>
+              <span>Director of Assessment &amp; Training · Apeiron Life</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="testi-controls">
+          <div class="testi-dots" id="testiDots">
+            <button class="testi-dot is-active" data-t="0" aria-label="Review 1"></button>
+            <button class="testi-dot" data-t="1" aria-label="Review 2"></button>
+            <button class="testi-dot" data-t="2" aria-label="Review 3"></button>
+            <button class="testi-dot" data-t="3" aria-label="Review 4"></button>
+          </div>
+          <div class="testi-nav">
+            <button class="testi-btn" id="prevTesti" aria-label="Previous review">←</button>
+            <button class="testi-btn" id="nextTesti" aria-label="Next review">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— Footer ——— -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Dynamic Release Therapy">
+            <img class="brand-logo" src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/logo-1.webp" alt="Dynamic Release Therapy" />
+          </a>
+          <p>Precision non-porous 316 stainless steel instruments and international 3-D ISTM certification workshops—designed by professionals for professionals.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Instruments</h4>
+          <ul>
+            <li><a href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">Instrument Set + Case</a></li>
+            <li><a href="https://dynamicreleasetherapy.com/product/drt-2-2/" target="_blank" rel="noopener">DRT #1 Joint Tool</a></li>
+            <li><a href="https://dynamicreleasetherapy.com/product/drt-2-3/" target="_blank" rel="noopener">DRT #2 Large Surface</a></li>
+            <li><a href="https://dynamicreleasetherapy.com/product/drt-2-4/" target="_blank" rel="noopener">DRT #3 Extremities</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Education</h4>
+          <ul>
+            <li><a href="#courses">Fascia to Function Face-to-Face</a></li>
+            <li><a href="#courses">Fascia to Function Hybrid</a></li>
+            <li><a href="#courses">Advanced PNF Workshop</a></li>
+            <li><a href="#testimonials">University Programs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:4083942830">(408) 394-2830</a></li>
+            <li><a href="mailto:Gary@DynamicReleaseTherapy.com">Gary@DynamicReleaseTherapy.com</a></li>
+            <li>San Francisco Bay Area, CA</li>
+            <li><a href="https://www.linkedin.com/in/gary-lang-ms-omt-atr-8bb3a067/" target="_blank" rel="noopener">Gary Lang on LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Dynamic Release Therapy. All rights reserved.</div>
+        <ul>
+          <li><a href="https://dynamicreleasetherapy.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><a href="https://dynamicreleasetherapy.com/terms-of-service/" target="_blank" rel="noopener">Terms of Service</a></li>
+          <li><a href="https://dynamicreleasetherapy.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Header & scroll progress
+    const header = document.getElementById("siteHeader");
+    const progressEl = document.getElementById("scrollProgress");
+    const onScroll = () => {
+      header.classList.toggle("is-solid", window.scrollY > 36);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progressEl.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : "0%";
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Mobile drawer
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("is-open");
+      header.classList.toggle("menu-open", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    navLinks.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+      navLinks.classList.remove("is-open");
+      header.classList.remove("menu-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }));
+
+    // 2. Hero Slider (rAF-synced progress bars, hover-pause, swipe & keyboard)
+    const slides = [...document.querySelectorAll(".slide")];
+    const dockTabs = [...document.querySelectorAll(".dock-tab")];
+    const slideNum = document.getElementById("slideNum");
+    const heroStage = document.getElementById("heroStage");
+    const DURATION = 6000;
+    let activeSlide = 0;
+    let elapsed = 0;
+    let paused = false;
+    let lastTick = performance.now();
+
+    function goToSlide(idx) {
+      activeSlide = (idx + slides.length) % slides.length;
+      elapsed = 0;
+      slides.forEach((s, i) => s.classList.toggle("is-active", i === activeSlide));
+      dockTabs.forEach((t, i) => {
+        t.classList.toggle("is-active", i === activeSlide);
+        t.classList.toggle("is-done", i < activeSlide);
+        t.querySelector(".dock-tab-fill").style.width = i < activeSlide ? "100%" : "0%";
+      });
+      slideNum.textContent = String(activeSlide + 1).padStart(2, "0");
+    }
+
+    function tick(now) {
+      const dt = now - lastTick;
+      lastTick = now;
+      if (!paused) {
+        elapsed += dt;
+        const pct = Math.min(100, (elapsed / DURATION) * 100);
+        dockTabs[activeSlide].querySelector(".dock-tab-fill").style.width = `${pct}%`;
+        if (elapsed >= DURATION) goToSlide(activeSlide + 1);
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    dockTabs.forEach((t) => t.addEventListener("click", () => goToSlide(Number(t.dataset.goto))));
+    document.getElementById("prevSlide").addEventListener("click", () => goToSlide(activeSlide - 1));
+    document.getElementById("nextSlide").addEventListener("click", () => goToSlide(activeSlide + 1));
+    heroStage.addEventListener("mouseenter", () => (paused = true));
+    heroStage.addEventListener("mouseleave", () => (paused = false));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") goToSlide(activeSlide + 1);
+      if (e.key === "ArrowLeft") goToSlide(activeSlide - 1);
+    });
+
+    // Touch swipe for hero
+    let touchX = 0;
+    heroStage.addEventListener("touchstart", (e) => (touchX = e.changedTouches[0].clientX), { passive: true });
+    heroStage.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 45) goToSlide(activeSlide + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    // 3. 3-D Science Interactive Switcher
+    const specs = [
+      {
+        eyebrow: "01 · Non-Porous 316 Alloy",
+        title: "Pure resonance through solid bar stock—zero pores, faster sanitation.",
+        body: "Increased nickel content in 316 stainless steel eliminates microscopic surface pores where pathogens hide. Clinicians feel subtle fascial adhesions instantly through the instrument’s natural vibration, while angled-grooved grips protect practitioner thumbs and wrists from overuse injury.",
+        pills: ["316 Medical-Grade Steel", "Angled-Grooved Grip", "Save Your Hands™"]
+      },
+      {
+        eyebrow: "02 · Double-Beveled Perimeter",
+        title: "Precision bevels release scar tissue without bruising healthy tissue.",
+        body: "Each instrument carries continuous double-beveled edges and asymmetrical concave-convex arcs engineered for different somatotypes. You apply less pressure, preserve capillary integrity, and leave patients comfortable instead of bruised.",
+        pills: ["Zero Unnecessary Bruising", "Asymmetric Arcs", "Full-Perimeter Edge"]
+      },
+      {
+        eyebrow: "03 · Multi-Plane 3-D ISTM",
+        title: "Treat restrictions in Sagittal, Frontal, and Transverse planes.",
+        body: "Human fascia never restricts in a straight line. Pairing 3-D instrument strokes with muscle loading and Dynamic Tape unlocks mobility, strength, and endurance immediately—with no recovery day required before returning to sport.",
+        pills: ["Sagittal Plane", "Frontal Plane", "Transverse Plane"]
+      }
+    ];
+    const specTabs = [...document.querySelectorAll(".spec-tab")];
+    const readout = document.getElementById("scienceReadout");
+    specTabs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const data = specs[Number(btn.dataset.spec)];
+        specTabs.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        readout.classList.add("is-switching");
+        setTimeout(() => {
+          document.getElementById("specEyebrow").textContent = data.eyebrow;
+          document.getElementById("specTitle").textContent = data.title;
+          document.getElementById("specBody").textContent = data.body;
+          document.getElementById("specPills").innerHTML = data.pills.map((p) => `<span class="plane-pill">${p}</span>`).join("");
+          readout.classList.remove("is-switching");
+        }, 180);
+      });
+    });
+
+    // 4. Testimonials Slider
+    const tSlides = [...document.querySelectorAll(".testi-slide")];
+    const tDots = [...document.querySelectorAll(".testi-dot")];
+    let tIdx = 0;
+    function setTesti(i) {
+      tIdx = (i + tSlides.length) % tSlides.length;
+      tSlides.forEach((s, n) => s.classList.toggle("is-active", n === tIdx));
+      tDots.forEach((d, n) => d.classList.toggle("is-active", n === tIdx));
+    }
+    tDots.forEach((d) => d.addEventListener("click", () => setTesti(Number(d.dataset.t))));
+    document.getElementById("prevTesti").addEventListener("click", () => setTesti(tIdx - 1));
+    document.getElementById("nextTesti").addEventListener("click", () => setTesti(tIdx + 1));
+    setInterval(() => setTesti(tIdx + 1), 7500);
+
+    // 5. Scroll Reveals
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("is-in");
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.14 });
+    document.querySelectorAll("[data-reveal]").forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 4) * 70}ms`;
+      io.observe(el);
+    });
+  </script>
+</body>
+</html>
