@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dynamic Release Therapy — Precision 3-D ISTM &amp; Clinical Education</title>
+  <title>Professional IASTM Tools &amp; Training | Dynamic Release</title>
+  <meta name="description" content="Shop professional stainless steel IASTM tools and explore hands-on soft tissue mobilization workshops led by Gary Lang at Dynamic Release Therapy." />
+  <meta name="keywords" content="IASTM tools, IASTM training, stainless steel IASTM instruments, soft tissue mobilization tools, instrument-assisted soft tissue mobilization, manual therapy workshops" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -898,6 +900,75 @@
     }
     .testi-author strong { display: block; font-size: 0.98rem; }
     .testi-author span { font-size: 0.85rem; color: var(--teal); font-weight: 500; }
+
+    /* FAQ */
+    .faq { background: var(--bg-light); }
+    .faq-list {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 820px;
+      margin-bottom: 2.75rem;
+    }
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--steel-line);
+      border-radius: 14px;
+      padding: 0.15rem 1.15rem;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .faq-item[open] {
+      border-color: rgba(229, 106, 40, 0.35);
+      box-shadow: 0 10px 28px rgba(13, 18, 24, 0.06);
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 1rem 0;
+      position: relative;
+      padding-right: 2rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--teal);
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    .faq-item[open] summary::after { content: "–"; }
+    .faq-item p, .faq-item ul {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      padding-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .faq-item ul {
+      padding-left: 1.15rem;
+      margin: -0.35rem 0 0.75rem;
+    }
+    .faq-item li { margin-bottom: 0.35rem; }
+    .faq-cta {
+      background: #fff;
+      border: 1px solid var(--steel-line);
+      border-radius: 18px;
+      padding: 2rem;
+      max-width: 820px;
+    }
+    .faq-cta h3 {
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.65rem;
+    }
+    .faq-cta p {
+      color: var(--ink-muted);
+      margin-bottom: 1.35rem;
+      max-width: 52ch;
+    }
     .testi-controls {
       display: flex;
       align-items: center;
@@ -1004,21 +1075,21 @@
           <div class="slide-kicker">
             <div class="kicker-topline">
               <span class="kicker-mark" aria-hidden="true"></span>
-              <span class="kicker-label">Patented System</span>
+              <span class="kicker-label">Professional IASTM Instruments &amp; Education</span>
               <span class="kicker-rule" aria-hidden="true"></span>
             </div>
-            <div class="kicker-line">3-D ISTM <span class="sep">·</span> Non-Porous Steel <span class="sep">·</span> Made in USA</div>
+            <div class="kicker-line">Made in the USA <span class="sep">·</span> 3 Specialized Instruments <span class="sep">·</span> Hands-On Workshops</div>
           </div>
-          <h1 class="slide-title">Release fascia in <em>3 dimensions.</em> Save your hands.</h1>
-          <p class="slide-desc">Non-porous 316 solid stainless steel instruments with double-beveled perimeter edges—built to detect and release collagenous scar tissue without bruising.</p>
+          <h1 class="slide-title">Professional IASTM Tools. <em>Hands-On Training</em> That Goes Further.</h1>
+          <p class="slide-desc">Dynamic Release Therapy combines precision-designed stainless steel instruments with practical soft tissue mobilization training for physical therapists, athletic trainers, and manual therapy professionals. Explore tools and techniques designed to complement your hands-on approach to patient care.</p>
           <div class="slide-metrics">
-            <div class="metric"><strong>316 Steel</strong><span>Non-Porous · Pathogen Safe</span></div>
-            <div class="metric"><strong>30+ Years</strong><span>Olympic &amp; Pro Sports Care</span></div>
-            <div class="metric"><strong>Zero Downtime</strong><span>Same-Day Return to Play</span></div>
+            <div class="metric"><strong>Made in USA</strong><span>Professional Clinical Quality</span></div>
+            <div class="metric"><strong>3 Instruments</strong><span>Specialized Contours</span></div>
+            <div class="metric"><strong>Workshops</strong><span>Hands-On IASTM Training</span></div>
           </div>
           <div class="slide-actions">
-            <a class="btn btn-primary" href="#instruments">Explore Instruments</a>
-            <a class="btn btn-outline-light" href="#courses">View Certification Courses</a>
+            <a class="btn btn-primary" href="#instruments">Shop IASTM Instruments</a>
+            <a class="btn btn-outline-light" href="#courses">Explore Training Courses</a>
           </div>
         </div>
         <div class="slide-visual">
@@ -1026,10 +1097,10 @@
             <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/03/home-banner-1.webp" alt="Dynamic Release Therapy treatment and instruments" />
             <div class="visual-badge">
               <div>
-                <small>Clinical Standard</small>
-                <strong>Designed by Professionals for Professionals</strong>
+                <small>IASTM Instruments &amp; Education</small>
+                <strong>Designed for Hands-On Professionals</strong>
               </div>
-              <span class="visual-price">DRT System</span>
+              <span class="visual-price">DRT</span>
             </div>
           </div>
         </div>
@@ -1041,30 +1112,30 @@
           <div class="slide-kicker">
             <div class="kicker-topline">
               <span class="kicker-mark" aria-hidden="true"></span>
-              <span class="kicker-label">Complete Clinical Kit</span>
+              <span class="kicker-label">Solid Stainless Steel · Made in the USA</span>
               <span class="kicker-rule" aria-hidden="true"></span>
             </div>
-            <div class="kicker-line">DRT #1–#3 <span class="sep">·</span> Leather Case <span class="sep">·</span> Save $136</div>
+            <div class="kicker-line">316 Stainless Steel <span class="sep">·</span> 3 Instrument Designs <span class="sep">·</span> Complete Set Available</div>
           </div>
-          <h1 class="slide-title">Three instruments. <em>Every</em> anatomical plane.</h1>
-          <p class="slide-desc">DRT #1, DRT #2, and DRT #3 cut from solid bar stock—not forged or cast—for resonant tissue feedback, ergonomic angled-grooved grips, and full-body joint precision.</p>
+          <h1 class="slide-title">Precision-Shaped IASTM Tools for <em>Hands-On</em> Professionals.</h1>
+          <p class="slide-desc">Your patients have different anatomies. Your instruments should account for them. Discover three stainless steel Dynamic Release instruments featuring asymmetrical contours, double-beveled treatment edges, and grooved grips designed for a range of clinical applications.</p>
           <div class="slide-metrics">
-            <div class="metric"><strong>DRT #1–#3</strong><span>Asymmetric Concave / Convex</span></div>
-            <div class="metric"><strong>Leather Case</strong><span>Included Protective Roll</span></div>
-            <div class="metric"><strong>Double Bevel</strong><span>Calibrated Perimeter Edges</span></div>
+            <div class="metric"><strong>316 Steel</strong><span>Solid Stainless Construction</span></div>
+            <div class="metric"><strong>3 Designs</strong><span>Joints · Large Areas · Small Areas</span></div>
+            <div class="metric"><strong>Full Set</strong><span>Instruments + Case</span></div>
           </div>
           <div class="slide-actions">
-            <a class="btn btn-primary" href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">Shop Full Set — $959</a>
-            <a class="btn btn-outline-light" href="#instruments">Compare DRT #1 · #2 · #3</a>
+            <a class="btn btn-primary" href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">Explore the Instrument Set</a>
+            <a class="btn btn-outline-light" href="#instruments">Shop Individual Instruments</a>
           </div>
         </div>
         <div class="slide-visual">
           <div class="visual-frame is-product">
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3-1-1.webp" alt="Dynamic Release Instrument Set with Leather Case" />
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3-1-1.webp" alt="Dynamic Release Instrument Set with Case" />
             <div class="visual-badge">
               <div>
-                <small>Complete Kit</small>
-                <strong>Instrument Set with Leather Case</strong>
+                <small>Complete Collection</small>
+                <strong>Dynamic Release Instrument Set</strong>
               </div>
               <span class="visual-price">$959.00</span>
             </div>
@@ -1078,30 +1149,30 @@
           <div class="slide-kicker">
             <div class="kicker-topline">
               <span class="kicker-mark" aria-hidden="true"></span>
-              <span class="kicker-label">International Certification</span>
+              <span class="kicker-label">Professional Development · Hands-On IASTM Training</span>
               <span class="kicker-rule" aria-hidden="true"></span>
             </div>
-            <div class="kicker-line">2-Day Lab <span class="sep">·</span> 16 Hours <span class="sep">·</span> CEU / CPE</div>
+            <div class="kicker-line">16 Hours / 2 Days <span class="sep">·</span> 16 BOC CEUs Listed <span class="sep">·</span> Completion Certification</div>
           </div>
-          <h1 class="slide-title"><em>Fascia to Function</em> Hands-On Lab.</h1>
-          <p class="slide-desc">Master multi-plane instrumented soft tissue mobilization and PNF integration—taught in person and hybrid across Stanford University, Europe, Asia, and the Middle East.</p>
+          <h1 class="slide-title"><em>Fascia to Function.</em> From Clinical Knowledge to Confident Application.</h1>
+          <p class="slide-desc">Go beyond demonstrations with hands-on instruction in instrument-assisted soft tissue mobilization. Learn to assess soft tissue, choose treatment edges, and practice three-dimensional techniques under professional guidance.</p>
           <div class="slide-metrics">
-            <div class="metric"><strong>16 Hours</strong><span>Lecture &amp; Hands-On Lab</span></div>
-            <div class="metric"><strong>CEU / CPE</strong><span>International Certification</span></div>
-            <div class="metric"><strong>PT · ATC · DC</strong><span>Clinics &amp; Universities</span></div>
+            <div class="metric"><strong>16 Hours</strong><span>2-Day Hands-On Format</span></div>
+            <div class="metric"><strong>16 BOC CEUs</strong><span>Listed Continuing Education</span></div>
+            <div class="metric"><strong>Certification</strong><span>Course Completion</span></div>
           </div>
           <div class="slide-actions">
-            <a class="btn btn-primary" href="#courses">Explore Workshops</a>
-            <a class="btn btn-outline-light" href="mailto:Gary@DynamicReleaseTherapy.com">Host a Clinic Course</a>
+            <a class="btn btn-primary" href="#courses">Explore the Face-to-Face Course</a>
+            <a class="btn btn-outline-light" href="#courses">Compare Course Formats</a>
           </div>
         </div>
         <div class="slide-visual">
           <div class="visual-frame">
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-3.webp" alt="Fascia to Function hands-on course" />
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-3.webp" alt="Fascia to Function instructor-led soft tissue mobilization workshop" />
             <div class="visual-badge">
               <div>
-                <small>Upcoming Training</small>
-                <strong>Fascia to Function — Face to Face &amp; Hybrid</strong>
+                <small>Fascia to Function</small>
+                <strong>Instructor-Led Soft Tissue Mobilization Workshop</strong>
               </div>
               <span class="visual-price">16 HRS</span>
             </div>
@@ -1115,30 +1186,30 @@
           <div class="slide-kicker">
             <div class="kicker-topline">
               <span class="kicker-mark" aria-hidden="true"></span>
-              <span class="kicker-label">Proven at the Highest Level</span>
+              <span class="kicker-label">Gary L. Lang · Sports Medicine &amp; Manual Therapy</span>
               <span class="kicker-rule" aria-hidden="true"></span>
             </div>
-            <div class="kicker-line">Olympic <span class="sep">·</span> FIFA <span class="sep">·</span> Pro Baseball</div>
+            <div class="kicker-line">30+ Years of Experience <span class="sep">·</span> International Sports Medicine <span class="sep">·</span> Professional Education</div>
           </div>
-          <h1 class="slide-title">Trusted from <em>Stanford</em> to World Championships.</h1>
-          <p class="slide-desc">Created by Gary Lang, MS, OMT, ATR—combining three decades with the USOC, FIFA World Cup ’94, IAAF, and elite manual therapy pioneers.</p>
+          <h1 class="slide-title">Decades of Clinical Experience. A Different Approach to <em>Instrument Design.</em></h1>
+          <p class="slide-desc">Developed by athletic trainer and orthopedic manual therapist Gary Lang, Dynamic Release brings together decades of clinical practice, sports medicine experience, and hands-on teaching.</p>
           <div class="slide-metrics">
-            <div class="metric"><strong>2 Olympics</strong><span>USOC Medical Staff</span></div>
-            <div class="metric"><strong>SF Giants</strong><span>Daily MLB Recovery</span></div>
-            <div class="metric"><strong>10+ Years</strong><span>MSAT University Curricula</span></div>
+            <div class="metric"><strong>30+ Years</strong><span>Clinical Experience</span></div>
+            <div class="metric"><strong>Sports Med</strong><span>International Background</span></div>
+            <div class="metric"><strong>Education</strong><span>Professional Workshops</span></div>
           </div>
           <div class="slide-actions">
             <a class="btn btn-primary" href="#founder">Meet Gary Lang</a>
-            <a class="btn btn-outline-light" href="#testimonials">Read Clinician Reviews</a>
+            <a class="btn btn-outline-light" href="mailto:Gary@DynamicReleaseTherapy.com">Host a Workshop</a>
           </div>
         </div>
         <div class="slide-visual">
           <div class="visual-frame">
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/Courses-2.webp" alt="Clinical sports medicine workshop" />
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/Courses-2.webp" alt="Gary Lang Dynamic Release Therapy instruction" />
             <div class="visual-badge">
               <div>
-                <small>Founder &amp; Lead Instructor</small>
-                <strong>Gary L. Lang, MS, OMT, ATR</strong>
+                <small>Founder &amp; Instructor</small>
+                <strong>Gary L. Lang, MS</strong>
               </div>
               <span class="visual-price">30+ YRS</span>
             </div>
@@ -1152,10 +1223,10 @@
       <div class="wrap dock-inner">
         <div class="dock-counter"><strong id="slideNum">01</strong> / 04</div>
         <div class="dock-tabs" id="dockTabs">
-          <button class="dock-tab is-active" data-goto="0"><span class="dock-tab-label">01 · 3-D Release</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
-          <button class="dock-tab" data-goto="1"><span class="dock-tab-label">02 · Steel Instrument Set</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+          <button class="dock-tab is-active" data-goto="0"><span class="dock-tab-label">01 · 3-D Soft Tissue</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+          <button class="dock-tab" data-goto="1"><span class="dock-tab-label">02 · Precision Instruments</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
           <button class="dock-tab" data-goto="2"><span class="dock-tab-label">03 · Fascia to Function</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
-          <button class="dock-tab" data-goto="3"><span class="dock-tab-label">04 · Olympic Heritage</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
+          <button class="dock-tab" data-goto="3"><span class="dock-tab-label">04 · Experience &amp; Education</span><div class="dock-tab-track"><div class="dock-tab-fill"></div></div></button>
         </div>
         <div class="dock-arrows">
           <button class="dock-btn" id="prevSlide" aria-label="Previous slide">←</button>
@@ -1168,14 +1239,13 @@
   <!-- Trust Ribbon -->
   <div class="trust-strip">
     <div class="wrap trust-row">
-      <span class="trust-label">Trusted in clinical &amp; athletic rooms</span>
+      <span class="trust-label">Clinical experience &amp; professional testimonials</span>
       <div class="trust-names">
         <span>San Francisco Giants</span>
         <span>Stanford Athletics</span>
-        <span>USOC &amp; USA Wrestling</span>
-        <span>California Baptist Univ. MSAT</span>
+        <span>USA Wrestling</span>
+        <span>California Baptist University</span>
         <span>University of Idaho</span>
-        <span>Luleå Hockey Sweden</span>
       </div>
     </div>
   </div>
@@ -1185,45 +1255,46 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div>
-          <span class="eyebrow">Engineering &amp; Biomechanics</span>
-          <h2 class="sec-title">Why practitioners switch to <em>Dynamic Release.</em></h2>
+          <span class="eyebrow">Precision Design · Practical Clinical Application</span>
+          <h2 class="sec-title">IASTM Instruments Designed Around the <em>Anatomy You Treat.</em></h2>
         </div>
-        <p class="sec-sub">Traditional tools push too hard and bruise healthy tissue. DRT pairs non-porous 316 steel with multi-plane clinical geometry.</p>
+        <p class="sec-sub">In instrument-assisted soft tissue mobilization (IASTM), instrument shape, treatment edges, and hand positioning all influence how a practitioner works. Dynamic Release instruments combine carefully shaped contours and solid stainless steel construction to complement skilled manual therapy across different anatomical regions.</p>
       </div>
 
       <div class="science-grid" data-reveal>
         <div class="spec-tabs" id="specTabs">
           <button class="spec-tab is-active" data-spec="0">
-            <small>01 · Material Science</small>
-            <strong>Solid 316 Non-Porous Stainless Steel</strong>
-            <p>Machined—never forged or cast—creating resonant tactile vibration while blocking pathogen transfer.</p>
+            <small>01 · Material</small>
+            <strong>Solid 316 Stainless Steel</strong>
+            <p>Built for professional clinical use—durable, easily cleaned treatment surfaces with appropriate hygiene practices.</p>
           </button>
           <button class="spec-tab" data-spec="1">
-            <small>02 · Edge Geometry</small>
-            <strong>Calibrated Double-Beveled Perimeter</strong>
-            <p>Contoured asymmetric curves fit every somatotype and release scar tissue with less force and zero bruising.</p>
+            <small>02 · Contours</small>
+            <strong>Anatomically Adaptable Contours</strong>
+            <p>Asymmetrical concave and convex curves for joints, larger soft tissue regions, and smaller structures.</p>
           </button>
           <button class="spec-tab" data-spec="2">
-            <small>03 · Biomechanics</small>
-            <strong>Multi-Plane 3-D Tissue Loading</strong>
-            <p>Restrictions exist across sagittal, frontal, and transverse planes—athletes return to activity the same day.</p>
+            <small>03 · Edges</small>
+            <strong>Multi-Directional Treatment Edges</strong>
+            <p>Double-beveled perimeter edges and textured grips support varied instrument angles and hand positions.</p>
           </button>
         </div>
 
         <div class="science-panel">
           <div class="science-readout" id="scienceReadout">
-            <span class="eyebrow" style="color: var(--teal-bright);" id="specEyebrow">01 · Non-Porous 316 Alloy</span>
-            <h3 id="specTitle">Pure resonance through solid bar stock—zero pores, faster sanitation.</h3>
-            <p id="specBody">Increased nickel content in 316 stainless steel eliminates microscopic surface pores where pathogens hide. Clinicians feel subtle fascial adhesions instantly through the instrument’s natural vibration, while angled-grooved grips protect practitioner thumbs and wrists from overuse injury.</p>
+            <span class="eyebrow" style="color: var(--teal-bright);" id="specEyebrow">What Makes Dynamic Release Different</span>
+            <h3 id="specTitle">More Than a Treatment Edge. Designed for the Way You Work.</h3>
+            <p id="specBody">Your hands remain central to effective manual therapy. Dynamic Release instruments are designed to complement them. Every curve, grip, and treatment edge serves a practical purpose: providing different contact options across anatomical regions while helping practitioners maintain control during instrument-assisted techniques.</p>
             <div class="plane-pills" id="specPills">
-              <span class="plane-pill">316 Medical-Grade Steel</span>
-              <span class="plane-pill">Angled-Grooved Grip</span>
-              <span class="plane-pill">Save Your Hands™</span>
+              <span class="plane-pill">Solid 316 Stainless Steel</span>
+              <span class="plane-pill">Asymmetrical Contours</span>
+              <span class="plane-pill">Double-Beveled Edges</span>
+              <span class="plane-pill">Grooved Grips</span>
             </div>
           </div>
           <div class="science-foot">
-            <span>MADE IN THE USA · PATENTED DESIGN</span>
-            <span>NO RECOVERY DAY REQUIRED</span>
+            <span>MADE IN THE USA · PRECISION DESIGN</span>
+            <a href="#instruments" style="color: var(--teal-bright); text-decoration: none;">Discover the Instrument Design →</a>
           </div>
         </div>
       </div>
@@ -1235,69 +1306,70 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div>
-          <span class="eyebrow">Precision Instruments</span>
-          <h2 class="sec-title">Machined for <em>every</em> joint and contour.</h2>
+          <span class="eyebrow">Precision Instruments · Made in the USA</span>
+          <h2 class="sec-title">Different Anatomy. Purpose-Built <em>IASTM</em> Instruments.</h2>
         </div>
-        <a class="btn btn-outline-dark" href="https://dynamicreleasetherapy.com/shop/" target="_blank" rel="noopener">Visit Full Store →</a>
+        <a class="btn btn-outline-dark" href="https://dynamicreleasetherapy.com/shop/" target="_blank" rel="noopener">Shop All IASTM Instruments →</a>
       </div>
+      <p class="sec-sub" data-reveal style="margin: -1.5rem 0 2.5rem;">From joint contours to larger muscle groups and smaller anatomical structures, Dynamic Release offers three distinct instruments for different soft tissue applications. Choose an individual tool or the complete collection for a wider range of treatment options.</p>
 
       <div class="products-grid">
         <article class="prod-card" data-reveal>
           <div class="prod-media">
-            <span class="prod-tag">Save $136</span>
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3-1-1.webp" alt="Instrument Set with Case" />
+            <span class="prod-tag">Complete Collection</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3-1-1.webp" alt="Dynamic Release Instrument Set with Case" />
           </div>
           <div class="prod-body">
-            <h3>Instrument Set with Case</h3>
-            <p>Complete set of three non-porous stainless steel instruments (DRT #1, #2, #3) with handcrafted leather case.</p>
+            <h3>Dynamic Release Instrument Set</h3>
+            <p>Three complementary stainless steel IASTM instruments for joint regions, larger soft tissue areas, and smaller anatomical structures. Includes a carrying case that opens into a convenient instrument stand.</p>
             <div class="prod-foot">
-              <div class="price"><s>$1,095</s><strong>$959.00</strong></div>
-              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">View →</a>
+              <div class="price"><strong>$959.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/instrument-set-with-case/" target="_blank" rel="noopener">Explore Complete Set →</a>
             </div>
           </div>
         </article>
 
         <article class="prod-card" data-reveal>
           <div class="prod-media">
-            <span class="prod-tag">Joint Versatility</span>
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-1-1.webp" alt="DRT #1 Instrument" />
+            <span class="prod-tag">Joints &amp; Tissue Attachments</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-1-1.webp" alt="DRT #1 Joint Contour Instrument" />
           </div>
           <div class="prod-body">
-            <h3>DRT #1</h3>
-            <p>Double-beveled, asymmetric concave-convex curves with a continuous perimeter treatment edge around joints.</p>
-            <div class="prod-foot">
-              <div class="price"><s>$365</s><strong>$359.00</strong></div>
-              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-2/" target="_blank" rel="noopener">View →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="prod-card" data-reveal>
-          <div class="prod-media">
-            <span class="prod-tag">Large Regions</span>
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-2.webp" alt="DRT #2 Instrument" />
-          </div>
-          <div class="prod-body">
-            <h3>DRT #2</h3>
-            <p>Multi-directional applications across larger muscle groups and fascial chains with calibrated double-bevel edges.</p>
-            <div class="prod-foot">
-              <div class="price"><s>$365</s><strong>$359.00</strong></div>
-              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-3/" target="_blank" rel="noopener">View →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="prod-card" data-reveal>
-          <div class="prod-media">
-            <span class="prod-tag">Extremity Precision</span>
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3.webp" alt="DRT #3 Instrument" />
-          </div>
-          <div class="prod-body">
-            <h3>DRT #3</h3>
-            <p>Compact precision profile engineered specifically to release collagen around digits, wrist, ankle, foot, and hands.</p>
+            <h3>DRT #1 | Joint Contour Instrument</h3>
+            <p>Designed with varying concave and convex curves for instrument-assisted soft tissue applications around joints, bony landmarks, and surrounding tissue attachments.</p>
             <div class="prod-foot">
               <div class="price"><strong>$359.00</strong></div>
-              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-4/" target="_blank" rel="noopener">View →</a>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-2/" target="_blank" rel="noopener">View DRT #1 →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prod-card" data-reveal>
+          <div class="prod-media">
+            <span class="prod-tag">Larger Treatment Areas</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-2.webp" alt="DRT #2 Large-Area Instrument" />
+          </div>
+          <div class="prod-body">
+            <h3>DRT #2 | Large-Area Instrument</h3>
+            <p>Designed for broader soft tissue regions, including the back. Its asymmetrical contours and perimeter treatment edges accommodate multi-directional applications.</p>
+            <div class="prod-foot">
+              <div class="price"><strong>$359.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-3/" target="_blank" rel="noopener">View DRT #2 →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="prod-card" data-reveal>
+          <div class="prod-media">
+            <span class="prod-tag">Small-Area Precision</span>
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/pro-3.webp" alt="DRT #3 Small-Area Instrument" />
+          </div>
+          <div class="prod-body">
+            <h3>DRT #3 | Small-Area Instrument</h3>
+            <p>A compact instrument designed for hands, wrists, ankles, feet, and digits, with a specialized projection for focused applications around smaller structures.</p>
+            <div class="prod-foot">
+              <div class="price"><strong>$359.00</strong></div>
+              <a class="prod-link" href="https://dynamicreleasetherapy.com/product/drt-2-4/" target="_blank" rel="noopener">View DRT #3 →</a>
             </div>
           </div>
         </article>
@@ -1310,48 +1382,54 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div>
-          <span class="eyebrow">Clinical Education · CEU / CPE</span>
-          <h2 class="sec-title">Courses built by <em>active</em> soft tissue instructors.</h2>
+          <span class="eyebrow">Clinical Education · Hands-On Learning</span>
+          <h2 class="sec-title">IASTM Training That Turns Knowledge Into <em>Practical Skills.</em></h2>
         </div>
-        <p class="sec-sub">Hands-on international certifications and university workshops for PTs, OTs, ATCs, DCs, and manual therapists.</p>
+        <p class="sec-sub">Learning a technique is one thing. Knowing how to apply it appropriately requires practice. Dynamic Release courses combine clinical concepts, demonstrations, and guided hands-on instruction to help healthcare and movement professionals develop their manual therapy skills.</p>
       </div>
 
       <div class="courses-grid">
         <article class="course-card" data-reveal>
           <div class="course-img">
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-3.webp" alt="Fascia to Function Face to Face" />
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-3.webp" alt="Fascia to Function Face-to-Face IASTM Course" />
           </div>
           <div class="course-body">
-            <span class="course-meta">2-Day · 16 Hours · In-Person Lab</span>
-            <h3>Fascia to Function “Face to Face”</h3>
-            <p>International certification in multi-plane 3-D ISTM—covering spine, upper/lower extremities, and clinical loading.</p>
-            <a class="course-cta" href="https://dynamicreleasetherapy.com/product/fascia-to-function-face-to-face/" target="_blank" rel="noopener">Course Details →</a>
+            <span class="course-meta">2 Days · 16 Hours · Hands-On</span>
+            <h3>Fascia to Function: Face-to-Face IASTM Course</h3>
+            <p>Develop practical skills in soft tissue assessment, instrument selection, treatment angles, and three-dimensional applications through instructor-led demonstrations and supervised practice.</p>
+            <p class="course-meta" style="margin-bottom: 1rem;">16 Hours · 16 BOC CEUs Listed · Completion Certification</p>
+            <a class="course-cta" href="https://dynamicreleasetherapy.com/product/fascia-to-function-face-to-face/" target="_blank" rel="noopener">Explore Face-to-Face Course →</a>
           </div>
         </article>
 
         <article class="course-card" data-reveal>
           <div class="course-img">
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/Courses-2.webp" alt="Fascia to Function Hybrid" />
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/Courses-2.webp" alt="Fascia to Function Hybrid IASTM Training" />
           </div>
           <div class="course-body">
-            <span class="course-meta">Online + Live Practice · Flexible</span>
-            <h3>Fascia to Function “Hybrid”</h3>
-            <p>Combine foundational fascial science online with intensive live lab mastery—hosted at Stanford &amp; partner clinics.</p>
-            <a class="course-cta" href="https://dynamicreleasetherapy.com/course/" target="_blank" rel="noopener">Course Details →</a>
+            <span class="course-meta">Hybrid Format · Hands-On Practice</span>
+            <h3>Fascia to Function: Hybrid IASTM Training</h3>
+            <p>Combine preparatory learning with practical instruction in manual and instrument-assisted soft tissue techniques, including applications across the extremities, spine, and torso.</p>
+            <p class="course-meta" style="margin-bottom: 1rem;">8 Hours · 8 BOC CEUs Listed · Completion Certification</p>
+            <a class="course-cta" href="https://dynamicreleasetherapy.com/course/" target="_blank" rel="noopener">Explore Hybrid Training →</a>
           </div>
         </article>
 
         <article class="course-card" data-reveal>
           <div class="course-img">
-            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-5.webp" alt="Advanced PNF Workshop" />
+            <img src="https://dynamicreleasetherapy.com/wp-content/uploads/2025/01/Courses-5.webp" alt="Advanced PNF Training for Movement and Rehabilitation" />
           </div>
           <div class="course-body">
-            <span class="course-meta">Upper &amp; Lower Extremities</span>
-            <h3>Advanced Techniques of PNF</h3>
-            <p>Integrate Proprioceptive Neuromuscular Facilitation with 3-D soft tissue mobilization for instant strength and ROM gains.</p>
-            <a class="course-cta" href="https://dynamicreleasetherapy.com/product/pnf-proprioceptive-neuromuscular-facilitation-face-to-face/" target="_blank" rel="noopener">Course Details →</a>
+            <span class="course-meta">Upper &amp; Lower Extremities · Hands-On</span>
+            <h3>Advanced PNF Training for Movement &amp; Rehabilitation</h3>
+            <p>Develop your understanding of proprioceptive neuromuscular facilitation (PNF) through guided practice in diagonal movement, stretching, strengthening, stabilization, and range-of-motion techniques.</p>
+            <p class="course-meta" style="margin-bottom: 1rem;">Separate Upper &amp; Lower Extremity Workshops · 16 Hours Each</p>
+            <a class="course-cta" href="https://dynamicreleasetherapy.com/product/pnf-proprioceptive-neuromuscular-facilitation-face-to-face/" target="_blank" rel="noopener">Explore PNF Workshops →</a>
           </div>
         </article>
+      </div>
+      <div style="margin-top: 2rem; text-align: center;" data-reveal>
+        <a class="btn btn-outline-light" href="https://dynamicreleasetherapy.com/course/" target="_blank" rel="noopener">View All Courses &amp; Workshops →</a>
       </div>
     </div>
   </section>
@@ -1368,26 +1446,27 @@
           </div>
         </div>
         <ul class="cred-list">
-          <li>Two Olympic Games, USOC, IAAF, USA Track &amp; Field &amp; USA Gymnastics</li>
-          <li>Medical Coordinator — FIFA World Cup ’94 at Stanford University</li>
-          <li>Professor of Sports Medicine, Foothill College (1988–2019)</li>
-          <li>Adjunct Professor, MAHSA University (Kuala Lumpur, Malaysia)</li>
-          <li>East-West Shrine Bowl Medical Staff (12 years)</li>
+          <li>30+ years of athletic training and manual therapy experience</li>
+          <li>Former Sports Medicine Professor at Foothill College (1988–2019)</li>
+          <li>Experience with Olympic and international sporting events</li>
+          <li>Background includes U.S. Olympic Committee, FIFA, and U.S. Track &amp; Field</li>
+          <li>Hands-on instructor for professional and university programs</li>
         </ul>
       </div>
 
       <div class="founder-copy" data-reveal>
-        <span class="eyebrow">Meet the Innovator</span>
-        <h2>Rooted in <em>international</em> manual therapy. Built for longevity.</h2>
-        <p>Gary Lang began working with soft tissue instruments in the 1980s alongside pioneering hands-on clinicians in Northern California, Switzerland, Norway, and Australia. After testing wood, ceramic, jade, polymer, and early metal tools across Olympic and FIFA events, he engineered Dynamic Release Therapy to eliminate bruising and protect clinicians’ hands.</p>
+        <span class="eyebrow">Meet Gary L. Lang · Founder &amp; Instructor</span>
+        <h2>Built on Decades of Practice. Designed for the <em>Next Generation</em> of Clinicians.</h2>
+        <p>Gary L. Lang, MS, brings more than three decades of experience in athletic training, orthopedic manual therapy, and sports medicine education. His professional background includes work with the U.S. Olympic Committee, FIFA, U.S. Track &amp; Field, and collegiate athletic programs. He also taught sports medicine at Foothill College from 1988 to 2019.</p>
+        <p>Gary developed Dynamic Release instruments after years of working with different soft tissue treatment tools and recognizing the need for anatomical versatility in clinical applications. Today, he shares that experience through professional workshops focused on practical, three-dimensional manual therapy techniques.</p>
         <div class="founder-stats">
-          <div><strong>30+</strong><span>Years Clinical Practice</span></div>
-          <div><strong>17K+</strong><span>Clinical Followers</span></div>
-          <div><strong>4</strong><span>Continents Taught</span></div>
+          <div><strong>30+</strong><span>Years of Experience</span></div>
+          <div><strong>Sports Med</strong><span>International Background</span></div>
+          <div><strong>Hands-On</strong><span>Professional Education</span></div>
         </div>
         <div class="slide-actions">
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/gary-lang-ms-omt-atr-8bb3a067/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-          <a class="btn btn-outline-dark" href="mailto:Gary@DynamicReleaseTherapy.com">Email Gary Directly</a>
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/gary-lang-ms-omt-atr-8bb3a067/" target="_blank" rel="noopener">Learn More About Gary</a>
+          <a class="btn btn-outline-dark" href="mailto:Gary@DynamicReleaseTherapy.com">Contact Gary</a>
         </div>
       </div>
     </div>
@@ -1398,42 +1477,27 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <div>
-          <span class="eyebrow">Clinical Outcomes</span>
-          <h2 class="sec-title">Endorsed by <em>pro trainers,</em> Olympians &amp; program directors.</h2>
+          <span class="eyebrow">Experiences from the Field</span>
+          <h2 class="sec-title">Trusted in Practice. Valued by <em>Professionals</em> Who Use It.</h2>
         </div>
+        <p class="sec-sub">From clinical practice to athletic training programs, practitioners have shared their experiences with Dynamic Release instruments and education.</p>
       </div>
 
       <div class="testi-wrap" data-reveal>
         <div class="testi-stage" id="testiStage">
           <article class="testi-slide is-active">
-            <p class="testi-quote">“Dynamic Release is instrumental in giving our players an effective and efficient mode of recovery from chronic injuries sustained from playing baseball every day. Our players love the instruments!”</p>
+            <p class="testi-quote">“The instruments feel great in my hands and my athletes love how it makes them feel.”</p>
             <div class="testi-author">
-              <strong>Anthony Reyes, ATC, CSCS</strong>
-              <span>Assistant Athletic Trainer · San Francisco Giants</span>
+              <strong>Andi Choi, PT</strong>
+              <span>Choi Sports Therapy</span>
             </div>
           </article>
 
           <article class="testi-slide">
-            <p class="testi-quote">“With my feet and ankles constantly in skates, the DRT #3 provides exact release points after hours on the ice. Dynamic Release restores my mobility better than any other method.”</p>
+            <p class="testi-quote">“The opportunity to learn new skills and immediately practice was very beneficial.”</p>
             <div class="testi-author">
-              <strong>Camryn Wong</strong>
-              <span>Olympian &amp; Professional Hockey Player · Luleå Women’s Hockey, Sweden</span>
-            </div>
-          </article>
-
-          <article class="testi-slide">
-            <p class="testi-quote">“Gary Lang has been providing Dynamic Release training to the CBU MSAT for 10 years. We appreciate the evidence-based approach and how consistently he helps students elevate clinical care.”</p>
-            <div class="testi-author">
-              <strong>Nicole MacDonald, DrPH, ATC, CSCS</strong>
-              <span>Program Director, Athletic Training · California Baptist University</span>
-            </div>
-          </article>
-
-          <article class="testi-slide">
-            <p class="testi-quote">“Whether providing care at Stanford Athletics or working with the USA Wrestling Olympic team, these tools have offered an ergonomically comfortable, reliable game-changer for manual therapy.”</p>
-            <div class="testi-author">
-              <strong>Eitan Gelber, MA, ATC, CSCS</strong>
-              <span>Director of Assessment &amp; Training · Apeiron Life</span>
+              <strong>Sarah Johnson</strong>
+              <span>Fascia to Function Course Participant</span>
             </div>
           </article>
         </div>
@@ -1442,13 +1506,76 @@
           <div class="testi-dots" id="testiDots">
             <button class="testi-dot is-active" data-t="0" aria-label="Review 1"></button>
             <button class="testi-dot" data-t="1" aria-label="Review 2"></button>
-            <button class="testi-dot" data-t="2" aria-label="Review 3"></button>
-            <button class="testi-dot" data-t="3" aria-label="Review 4"></button>
           </div>
           <div class="testi-nav">
             <button class="testi-btn" id="prevTesti" aria-label="Previous review">←</button>
             <button class="testi-btn" id="nextTesti" aria-label="Next review">→</button>
           </div>
+        </div>
+      </div>
+      <div style="margin-top: 1.75rem; text-align: center;" data-reveal>
+        <a class="btn btn-outline-dark" href="#faq">Read More Professional Testimonials</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— FAQ ——— -->
+  <section class="pad faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">IASTM Tools · Training · Professional Education</span>
+          <h2 class="sec-title">Frequently Asked Questions About <em>Dynamic Release Therapy</em></h2>
+        </div>
+      </div>
+
+      <div class="faq-list" data-reveal>
+        <details class="faq-item" open>
+          <summary>What are IASTM tools, and how are Dynamic Release instruments used?</summary>
+          <p>Instrument-assisted soft tissue mobilization (IASTM) is a manual therapy approach in which practitioners use handheld instruments to assess and work with soft tissues. Dynamic Release offers stainless steel IASTM tools with specialized contours and treatment edges for use across different anatomical regions. These instruments complement hands-on clinical techniques rather than replace them.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who are Dynamic Release instruments designed for?</summary>
+          <p>Dynamic Release instruments are designed primarily for physical therapists, athletic trainers, chiropractors, massage therapists, and other healthcare or movement professionals trained in appropriate soft tissue techniques. Practitioners should use the instruments within their professional training, competence, and applicable scope of practice.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which Dynamic Release IASTM instrument should I choose?</summary>
+          <p>The appropriate instrument depends on the anatomical region and your intended clinical application.</p>
+          <ul>
+            <li><strong>DRT #1:</strong> Joint regions and surrounding tissue attachments.</li>
+            <li><strong>DRT #2:</strong> Larger soft tissue areas, including the back.</li>
+            <li><strong>DRT #3:</strong> Smaller areas, including hands, wrists, ankles, feet, and digits.</li>
+          </ul>
+          <p>The complete instrument set includes all three tools and a carrying case.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What makes Dynamic Release tools different from other IASTM instruments?</summary>
+          <p>Dynamic Release instruments feature solid 316 stainless steel construction, asymmetrical concave and convex curves, grooved grips, and double-beveled perimeter treatment edges. These design features provide different contact surfaces and application options. Instrument selection should still reflect clinical requirements, practitioner preference, and appropriate technique.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is the difference between Fascia to Function Face-to-Face and Hybrid training?</summary>
+          <p>The Face-to-Face course is listed as a two-day, 16-hour hands-on program focused on instrument-assisted soft tissue techniques. The Hybrid course is listed as an eight-hour format combining preparatory learning with hands-on workshop instruction. Both provide practical learning opportunities. Review the individual course descriptions and scheduled format before registering.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What will I learn in a Dynamic Release IASTM workshop?</summary>
+          <p>Dynamic Release workshops cover soft tissue assessment, instrument handling, treatment-edge selection, and three-dimensional applications. Depending on the course, instruction may also address indications, contraindications, anatomical regions, and the integration of manual and instrument-assisted techniques. Hands-on practice is a central part of the learning experience.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do Dynamic Release workshops offer continuing education credits?</summary>
+          <p>Dynamic Release currently lists 16 BOC continuing education units for its Face-to-Face Fascia to Function course and 8 BOC units for its Hybrid course. Its individual advanced PNF workshops also list 16 BOC units. Professionals should confirm current course approval, credit eligibility, and requirements with the provider and their licensing or certification organization.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can clinics, universities, or professional organizations host a Dynamic Release workshop?</summary>
+          <p>Yes. Dynamic Release offers workshop-hosting opportunities for clinics, hospitals, academic programs, and professional organizations. Training can be discussed for groups in athletic training, physical therapy, chiropractic care, massage therapy, and related disciplines. Contact Gary Lang to discuss workshop requirements and available arrangements.</p>
+        </details>
+      </div>
+
+      <div class="faq-cta" data-reveal>
+        <h3>Better Tools. Deeper Understanding. More Ways to Practice.</h3>
+        <p>Whether you're choosing your next IASTM instrument or developing your hands-on skills, explore the tools and education built around professional practice.</p>
+        <div class="slide-actions">
+          <a class="btn btn-primary" href="#courses">Explore Professional Workshops</a>
+          <a class="btn btn-outline-dark" href="#instruments">Shop Dynamic Release Instruments</a>
         </div>
       </div>
     </div>
@@ -1462,7 +1589,7 @@
           <a class="brand" href="#top" aria-label="Dynamic Release Therapy">
             <img class="brand-logo" src="https://dynamicreleasetherapy.com/wp-content/uploads/2024/08/logo-1.webp" alt="Dynamic Release Therapy" />
           </a>
-          <p>Precision non-porous 316 stainless steel instruments and international 3-D ISTM certification workshops—designed by professionals for professionals.</p>
+          <p>Professional stainless steel IASTM tools and hands-on soft tissue mobilization workshops—designed to complement skilled manual therapy practice.</p>
         </div>
 
         <div class="footer-col">
@@ -1590,22 +1717,22 @@
     // 3. 3-D Science Interactive Switcher
     const specs = [
       {
-        eyebrow: "01 · Non-Porous 316 Alloy",
-        title: "Pure resonance through solid bar stock—zero pores, faster sanitation.",
-        body: "Increased nickel content in 316 stainless steel eliminates microscopic surface pores where pathogens hide. Clinicians feel subtle fascial adhesions instantly through the instrument’s natural vibration, while angled-grooved grips protect practitioner thumbs and wrists from overuse injury.",
-        pills: ["316 Medical-Grade Steel", "Angled-Grooved Grip", "Save Your Hands™"]
+        eyebrow: "01 · Solid 316 Stainless Steel",
+        title: "Built for professional clinical use.",
+        body: "Cut from solid, nonporous stainless steel, each instrument offers a durable, easily cleaned treatment surface when used with appropriate clinical hygiene practices.",
+        pills: ["Solid 316 Stainless Steel", "Nonporous Surface", "Clinical Hygiene Ready"]
       },
       {
-        eyebrow: "02 · Double-Beveled Perimeter",
-        title: "Precision bevels release scar tissue without bruising healthy tissue.",
-        body: "Each instrument carries continuous double-beveled edges and asymmetrical concave-convex arcs engineered for different somatotypes. You apply less pressure, preserve capillary integrity, and leave patients comfortable instead of bruised.",
-        pills: ["Zero Unnecessary Bruising", "Asymmetric Arcs", "Full-Perimeter Edge"]
+        eyebrow: "02 · Anatomically Adaptable Contours",
+        title: "Different shapes for different structures.",
+        body: "Asymmetrical concave and convex curves provide a range of contact options for joints, larger soft tissue regions, and smaller anatomical structures.",
+        pills: ["Concave Curves", "Convex Curves", "Multi-Region Fit"]
       },
       {
-        eyebrow: "03 · Multi-Plane 3-D ISTM",
-        title: "Treat restrictions in Sagittal, Frontal, and Transverse planes.",
-        body: "Human fascia never restricts in a straight line. Pairing 3-D instrument strokes with muscle loading and Dynamic Tape unlocks mobility, strength, and endurance immediately—with no recovery day required before returning to sport.",
-        pills: ["Sagittal Plane", "Frontal Plane", "Transverse Plane"]
+        eyebrow: "03 · Multi-Directional Treatment Edges",
+        title: "Designed for varied clinical applications.",
+        body: "Double-beveled perimeter edges and textured grips support different instrument angles and hand positions during soft tissue mobilization.",
+        pills: ["Double-Beveled Edges", "Textured Grips", "Variable Angles"]
       }
     ];
     const specTabs = [...document.querySelectorAll(".spec-tab")];
